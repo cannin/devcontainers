@@ -16,21 +16,26 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   less \
   sudo \
   man-db \
+  ripgrep \
+  fzf \
   unzip \
   gnupg2 \
-  gh \
   jq \
   python3-pip \
   python3-setuptools \
   python3-wheel \
+  python3-dev \
   wget \
   curl \
+  gh \
   git \
   nano \
   micro \
   ncdu \
   htop \
   screen \
+  fontconfig \
+  fonts-dejavu-core \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install uv (standalone Rust-based Python tool manager)

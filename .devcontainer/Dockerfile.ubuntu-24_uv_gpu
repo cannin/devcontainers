@@ -7,11 +7,21 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends \
       build-essential \
       cmake \
+      less \
+      sudo \
+      man-db \
+      ripgrep \
+      fzf \
+      unzip \
+      gnupg2 \
+      jq \
       python3-pip \
       python3-setuptools \
       python3-wheel \
+      python3-dev \
       wget \
       curl \
+      gh \
       git \
       nano \
       ncdu \
@@ -19,6 +29,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       screen \
       magic-wormhole \
       micro \
+      fontconfig \
+      fonts-dejavu-core \
       libjpeg-dev \
       zlib1g-dev \
       libtiff-dev \
