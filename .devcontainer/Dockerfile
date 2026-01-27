@@ -47,6 +47,9 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && npm install -g @openai/codex@latest \
     && rm -rf /var/lib/apt/lists/*
 
+# VSCode if needed
+# curl -Lk 'https://code.visualstudio.com/sha/download?build=stable&os=cli-alpine-x64' --output vscode_cli.tar.gz; tar -xf vscode_cli.tar.gz
+
 # Create workspace and config directories and set permissions
 RUN mkdir -p /workspace /root/.codex
 
