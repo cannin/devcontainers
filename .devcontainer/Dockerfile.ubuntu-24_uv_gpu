@@ -46,6 +46,9 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 # Install uv (standalone Rust-based Python tool manager)
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 
+# Install nvitop for GPU monitor
+uvx nvitop
+
 # Install Node.js & Codex
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs \
