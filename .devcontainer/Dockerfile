@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   cmake \
   less \
   sudo \
+  psmisc \
   man-db \
   ripgrep \
   fzf \
@@ -36,19 +37,33 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   screen \
   fontconfig \
   fonts-dejavu-core \
+  magic-wormhole \
+  nvitop \
+  libjpeg-dev \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# (Optional) symlink python -> python3
+RUN ln -s /usr/bin/python3 /usr/bin/python
 
 # Install uv (standalone Rust-based Python tool manager)
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Install Node.js & Codex
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
-    && apt-get install -y nodejs \
+    && apt-get update && apt-get install -y nodejs \
     && npm install -g @openai/codex@latest \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # VSCode if needed
 # curl -Lk 'https://code.visualstudio.com/sha/download?build=stable&os=cli-alpine-x64' --output vscode_cli.tar.gz; tar -xf vscode_cli.tar.gz
+
+# R if needed
+#RUN apt-get update && apt-get install -y --no-install-recommends \
+#  r-base \
+#  r-cran-tidyverse \
+#  && apt-get clean && rm -rf /var/lib/apt/lists/*
+#RUN Rscript -e 'install.packages("languageserver", repos="https://cloud.r-project.org")'
+#ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
 # Create workspace and config directories and set permissions
 RUN mkdir -p /workspace /root/.codex
