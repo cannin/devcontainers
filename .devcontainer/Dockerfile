@@ -9,8 +9,10 @@ ENV DEVCONTAINER=true
 ENV EDITOR=nano
 ENV VISUAL=nano
 
-# Install basic development tools and iptables/ipset
+# Install basic development tools
 RUN apt-get update && apt-get install -y --no-install-recommends \
+  ca-certificates \ 
+  tzdata \
   build-essential \
   cmake \
   less \
@@ -37,7 +39,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   screen \
   fontconfig \
   fonts-dejavu-core \
+  fonts-liberation \
   magic-wormhole \
+  csvkit \
   nvitop \
   libjpeg-dev \
   && apt-get clean && rm -rf /var/lib/apt/lists/*

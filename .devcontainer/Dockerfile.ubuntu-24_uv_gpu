@@ -3,38 +3,41 @@ FROM nvidia/cuda:12.9.1-cudnn-devel-ubuntu24.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install general tools + build dependencies + python + git, etc.
 RUN apt-get update && apt-get install -y --no-install-recommends \
-      build-essential \
-      cmake \
-      less \
-      sudo \
-      psmisc \
-      man-db \
-      ripgrep \
-      fzf \
-      unzip \
-      gnupg2 \
-      jq \
-      python3-pip \
-      python3-setuptools \
-      python3-wheel \
-      python3-dev \
-      wget \
-      curl \
-      gh \
-      git \
-      nano \
-      micro \
-      ncdu \
-      htop \
-      screen \
-      fontconfig \
-      fonts-dejavu-core \
-      magic-wormhole \
-      nvitop \
-      libjpeg-dev \
-    && rm -rf /var/lib/apt/lists/*
+  ca-certificates \ 
+  tzdata \
+  build-essential \
+  cmake \
+  less \
+  sudo \
+  psmisc \
+  man-db \
+  ripgrep \
+  fzf \
+  unzip \
+  gnupg2 \
+  jq \
+  python3-pip \
+  python3-setuptools \
+  python3-wheel \
+  python3-dev \
+  wget \
+  curl \
+  gh \
+  git \
+  nano \
+  micro \
+  ncdu \
+  htop \
+  screen \
+  fontconfig \
+  fonts-dejavu-core \
+  fonts-liberation \
+  magic-wormhole \
+  csvkit \
+  nvitop \
+  libjpeg-dev \
+  && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # (Optional) symlink python -> python3
 RUN ln -s /usr/bin/python3 /usr/bin/python
