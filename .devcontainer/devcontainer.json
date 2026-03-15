@@ -33,6 +33,7 @@
 				"ms-python.black-formatter",
 				"mechatroner.rainbow-csv",
 				"reditorsupport.r",
+				"quarto.quarto",
 				"ms-vscode.live-server"
             ]
         }
